@@ -2,18 +2,6 @@
     "AWSTemplateFormatVersion": "2010-09-09",
     "Metadata": {
         "AWS::CloudFormation::Designer": {
-            "b99294b8-4dc4-4153-bb15-3dcdf99e05a1": {
-                "size": {
-                    "width": 60,
-                    "height": 60
-                },
-                "position": {
-                    "x": 200,
-                    "y": 250
-                },
-                "z": 0,
-                "embeds": []
-            },
             "0c7064b7-7053-461e-ba1b-3ef76058025e": {
                 "size": {
                     "width": 60,
@@ -107,20 +95,34 @@
                     "x": 410,
                     "y": 310
                 },
+                "z": 0,
+                "embeds": []
+            },
+            "a357911c-f50c-420e-9944-1ee9de30089b": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 620,
+                    "y": 240
+                },
+                "z": 0
+            },
+            "ad1779b8-41ca-4eb1-95c2-0fcfed796233": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 620,
+                    "y": 310
+                },
                 "z": 0
             }
         }
     },
     "Resources": {
-        "TrafficFinderSecrets": {
-            "Type": "AWS::SecretsManager::Secret",
-            "Properties": {},
-            "Metadata": {
-                "AWS::CloudFormation::Designer": {
-                    "id": "b99294b8-4dc4-4153-bb15-3dcdf99e05a1"
-                }
-            }
-        },
         "PipelineRole": {
             "Type": "AWS::IAM::ServiceLinkedRole",
             "Properties": {},
@@ -192,42 +194,145 @@
                     "id": "ef9fb18b-6e57-4517-81c5-46239cf2347a"
                 }
             }
+        },
+        "ClientBucketPolicy": {
+            "Type": "AWS::S3::BucketPolicy",
+            "Properties": {
+                "Bucket": {
+                    "Ref": "TrafficFinderClientBuildArtifacts"
+                },
+                "PolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                        {
+                            "Sid": "DenyUnEncryptedObjectUploads",
+                            "Effect": "Deny",
+                            "Principal": "*",
+                            "Action": "s3:PutObject",
+                            "Resource": {
+                                "Fn::Join": [
+                                    "",
+                                    [
+                                        {
+                                            "Fn::GetAtt": [
+                                                "TrafficFinderClientBuildArtifacts",
+                                                "Arn"
+                                            ]
+                                        },
+                                        "/*"
+                                    ]
+                                ]
+                            },
+                            "Condition": {
+                                "StringNotEquals": {
+                                    "s3:x-amz-server-side-encryption": "aws:kms"
+                                }
+                            }
+                        },
+                        {
+                            "Sid": "DenyInsecureConnections",
+                            "Effect": "Deny",
+                            "Principal": "*",
+                            "Action": "s3:*",
+                            "Resource": {
+                                "Fn::Join": [
+                                    "",
+                                    [
+                                        {
+                                            "Fn::GetAtt": [
+                                                "TrafficFinderClientBuildArtifacts",
+                                                "Arn"
+                                            ]
+                                        },
+                                        "/*"
+                                    ]
+                                ]
+                            },
+                            "Condition": {
+                                "Bool": {
+                                    "aws:SecureTransport": false
+                                }
+                            }
+                        }
+                    ]
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "a357911c-f50c-420e-9944-1ee9de30089b"
+                }
+            }
+        },
+        "ServerBucketPolicy": {
+            "Type": "AWS::S3::BucketPolicy",
+            "Properties": {
+                "Bucket": {
+                    "Ref": "TrafficFinderServerBuildArtifacts"
+                },
+                "PolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                        {
+                            "Sid": "DenyUnEncryptedObjectUploads",
+                            "Effect": "Deny",
+                            "Principal": "*",
+                            "Action": "s3:PutObject",
+                            "Resource": {
+                                "Fn::Join": [
+                                    "",
+                                    [
+                                        {
+                                            "Fn::GetAtt": [
+                                                "TrafficFinderServerBuildArtifacts",
+                                                "Arn"
+                                            ]
+                                        },
+                                        "/*"
+                                    ]
+                                ]
+                            },
+                            "Condition": {
+                                "StringNotEquals": {
+                                    "s3:x-amz-server-side-encryption": "aws:kms"
+                                }
+                            }
+                        },
+                        {
+                            "Sid": "DenyInsecureConnections",
+                            "Effect": "Deny",
+                            "Principal": "*",
+                            "Action": "s3:*",
+                            "Resource": {
+                                "Fn::Join": [
+                                    "",
+                                    [
+                                        {
+                                            "Fn::GetAtt": [
+                                                "TrafficFinderServerBuildArtifacts",
+                                                "Arn"
+                                            ]
+                                        },
+                                        "/*"
+                                    ]
+                                ]
+                            },
+                            "Condition": {
+                                "Bool": {
+                                    "aws:SecureTransport": false
+                                }
+                            }
+                        }
+                    ]
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "ad1779b8-41ca-4eb1-95c2-0fcfed796233"
+                }
+            }
         }
     },
     "Parameters": {
-        "MAPBOX_PUBLIC_KEY": {
-            "Type": "String"
-        },
-        "HERE_PUBLIC_KEY": {
-            "Type": "String"
-        },
-        "RDS_HOST": {
-            "Type": "String"
-        },
-        "RDS_PASSWORD": {
-            "Type": "String"
-        },
-        "RDS_PORT": {
-            "Type": "Number"
-        },
-        "DDB_ROUTE_TABLE_NAME": {
-            "Type": "String"
-        },
-        "DDB_SEGMENT_TABLE_NAME": {
-            "Type": "String"
-        },
-        "DDB_TEST_SEGMENT_TABLE_NAME": {
-            "Type": "String"
-        },
-        "DDB_TEST_ROUTE_TABLE_NAME": {
-            "Type": "String"
-        },
-        "RDS_TRAFFIC_FINDER_DB": {
-            "Type": "String"
-        },
-        "GithubAuthToken": {
-            "Type": "String"
-        },
         "FrontendGithubRepo": {
             "Type": "String"
         },
