@@ -1,0 +1,238 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Metadata": {
+        "AWS::CloudFormation::Designer": {
+            "b99294b8-4dc4-4153-bb15-3dcdf99e05a1": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 200,
+                    "y": 250
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "0c7064b7-7053-461e-ba1b-3ef76058025e": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 200,
+                    "y": 100
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "666ff5e2-745e-4e57-ac3c-63c143992831": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 410,
+                    "y": 100
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "fa7e64f3-609d-400c-a0b1-3009f1b0078f": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 520,
+                    "y": 100
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "02dad9d1-123a-47e8-a6f7-c5e26bef5d1c": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 300,
+                    "y": 100
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "c9a7dfb2-edd4-4fa2-84d4-0ed4ef7835f2": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 520,
+                    "y": 310
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "fd33b81d-f4d3-4948-a645-55e8cd2002d1": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 520,
+                    "y": 240
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "4bf6e63e-4840-4d44-8391-386063db80bd": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 410,
+                    "y": 240
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "ef9fb18b-6e57-4517-81c5-46239cf2347a": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 410,
+                    "y": 310
+                },
+                "z": 0
+            }
+        }
+    },
+    "Resources": {
+        "TrafficFinderSecrets": {
+            "Type": "AWS::SecretsManager::Secret",
+            "Properties": {},
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "b99294b8-4dc4-4153-bb15-3dcdf99e05a1"
+                }
+            }
+        },
+        "PipelineRole": {
+            "Type": "AWS::IAM::ServiceLinkedRole",
+            "Properties": {},
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "0c7064b7-7053-461e-ba1b-3ef76058025e"
+                }
+            }
+        },
+        "CodeBuildTFPolicy": {
+            "Type": "AWS::IAM::ManagedPolicy",
+            "Properties": {},
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "666ff5e2-745e-4e57-ac3c-63c143992831"
+                }
+            }
+        },
+        "CodePipelinesTFPolicy": {
+            "Type": "AWS::IAM::ManagedPolicy",
+            "Properties": {},
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "fa7e64f3-609d-400c-a0b1-3009f1b0078f"
+                }
+            }
+        },
+        "CodeBuildRole": {
+            "Type": "AWS::IAM::ServiceLinkedRole",
+            "Properties": {},
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "02dad9d1-123a-47e8-a6f7-c5e26bef5d1c"
+                }
+            }
+        },
+        "TrafficFinderServerBuildArtifacts": {
+            "Type": "AWS::S3::Bucket",
+            "Properties": {},
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "c9a7dfb2-edd4-4fa2-84d4-0ed4ef7835f2"
+                }
+            }
+        },
+        "TrafficFinderClientBuildArtifacts": {
+            "Type": "AWS::S3::Bucket",
+            "Properties": {},
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "fd33b81d-f4d3-4948-a645-55e8cd2002d1"
+                }
+            }
+        },
+        "TrafficFinderClientPipeline": {
+            "Type": "AWS::CodePipeline::Pipeline",
+            "Properties": {},
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "4bf6e63e-4840-4d44-8391-386063db80bd"
+                }
+            }
+        },
+        "TrafficFinderServerPipeline": {
+            "Type": "AWS::CodePipeline::Pipeline",
+            "Properties": {},
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "ef9fb18b-6e57-4517-81c5-46239cf2347a"
+                }
+            }
+        }
+    },
+    "Parameters": {
+        "MAPBOX_PUBLIC_KEY": {
+            "Type": "String"
+        },
+        "HERE_PUBLIC_KEY": {
+            "Type": "String"
+        },
+        "RDS_HOST": {
+            "Type": "String"
+        },
+        "RDS_PASSWORD": {
+            "Type": "String"
+        },
+        "RDS_PORT": {
+            "Type": "Number"
+        },
+        "DDB_ROUTE_TABLE_NAME": {
+            "Type": "String"
+        },
+        "DDB_SEGMENT_TABLE_NAME": {
+            "Type": "String"
+        },
+        "DDB_TEST_SEGMENT_TABLE_NAME": {
+            "Type": "String"
+        },
+        "DDB_TEST_ROUTE_TABLE_NAME": {
+            "Type": "String"
+        },
+        "RDS_TRAFFIC_FINDER_DB": {
+            "Type": "String"
+        },
+        "GithubAuthToken": {
+            "Type": "String"
+        },
+        "FrontendGithubRepo": {
+            "Type": "String"
+        },
+        "BackendGithubRepo": {
+            "Type": "String"
+        }
+    }
+}
