@@ -15,6 +15,5 @@ It expects the aws account to already contain an AWS Secrets Manager Secret inst
 * DDB_TEST_SEGMENT_TABLE_NAME
 * GITHUB_SECRET
 
-The intended usage is for someone to create their own EBS instance within their own VPC, import it into this stack and do any further network configurations, change the final deployment stage
-in the backend pipeline to point to it, and create the stack.
+The intended usage is for someone to create their own EB/RDS instances within their own VPC, import them into this stack and do any further network configurations, change the final deployment stage in the backend pipeline to point to the EB instance, then create the stack.
 
