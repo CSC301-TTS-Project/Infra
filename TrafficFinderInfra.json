@@ -107,7 +107,11 @@
                     "x": 620,
                     "y": 240
                 },
-                "z": 0
+                "z": 0,
+                "embeds": [],
+                "isassociatedwith": [
+                    "fd33b81d-f4d3-4948-a645-55e8cd2002d1"
+                ]
             },
             "ad1779b8-41ca-4eb1-95c2-0fcfed796233": {
                 "size": {
@@ -118,7 +122,35 @@
                     "x": 620,
                     "y": 310
                 },
-                "z": 0
+                "z": 0,
+                "embeds": [],
+                "isassociatedwith": [
+                    "c9a7dfb2-edd4-4fa2-84d4-0ed4ef7835f2"
+                ]
+            },
+            "e5d7d647-e699-4c01-af9e-731a3984fbb9": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 280,
+                    "y": 240
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "043e67d1-6bfc-4a06-8434-4fcebd184371": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 280,
+                    "y": 320
+                },
+                "z": 0,
+                "embeds": []
             }
         }
     },
@@ -179,7 +211,50 @@
         },
         "TrafficFinderClientPipeline": {
             "Type": "AWS::CodePipeline::Pipeline",
-            "Properties": {},
+            "Properties": {
+                "Name": "tfc-pipeline",
+                "RoleArn": {
+                    "Fn::GetAtt": [
+                        "PipelineRole",
+                        "Arn"
+                    ]
+                },
+                "Stages": [
+                    {
+                        "Name": "Source",
+                        "Actions": [
+                            {
+                                "Name": "SourceAction",
+                                "ActionTypeId": {
+                                    "Category": "Source",
+                                    "Owner": "ThirdParty",
+                                    "Version": 1,
+                                    "Provider": "GitHub"
+                                },
+                                "OutputArtifacts": [
+                                    {
+                                        "Name": "SourceOutput"
+                                    }
+                                ],
+                                "Configuration": {
+                                    "Owner": {
+                                        "Ref": "GitHubOwner"
+                                    },
+                                    "Repo": {
+                                        "Ref": "BackendGithubRepo"
+                                    },
+                                    "Branch": "main",
+                                    "OAuthToken": {
+                                        "Fn::Sub": "{{resolve:secretsmanager:${AWSSecretName}:SecretString:GithubSecret}}"
+                                    },
+                                    "PollForSourceChanges": false
+                                },
+                                "RunOrder": 1
+                            }
+                        ]
+                    }
+                ]
+            },
             "Metadata": {
                 "AWS::CloudFormation::Designer": {
                     "id": "4bf6e63e-4840-4d44-8391-386063db80bd"
@@ -188,7 +263,50 @@
         },
         "TrafficFinderServerPipeline": {
             "Type": "AWS::CodePipeline::Pipeline",
-            "Properties": {},
+            "Properties": {
+                "Name": "tfs-pipeline",
+                "RoleArn": {
+                    "Fn::GetAtt": [
+                        "PipelineRole",
+                        "Arn"
+                    ]
+                },
+                "Stages": [
+                    {
+                        "Name": "Source",
+                        "Actions": [
+                            {
+                                "Name": "SourceAction",
+                                "ActionTypeId": {
+                                    "Category": "Source",
+                                    "Owner": "ThirdParty",
+                                    "Version": 1,
+                                    "Provider": "GitHub"
+                                },
+                                "OutputArtifacts": [
+                                    {
+                                        "Name": "SourceOutput"
+                                    }
+                                ],
+                                "Configuration": {
+                                    "Owner": {
+                                        "Ref": "GitHubOwner"
+                                    },
+                                    "Repo": {
+                                        "Ref": "BackendGithubRepo"
+                                    },
+                                    "Branch": "main",
+                                    "OAuthToken": {
+                                        "Fn::Sub": "{{resolve:secretsmanager:${AWSSecretName}:SecretString:GithubSecret}}"
+                                    },
+                                    "PollForSourceChanges": false
+                                },
+                                "RunOrder": 1
+                            }
+                        ]
+                    }
+                ]
+            },
             "Metadata": {
                 "AWS::CloudFormation::Designer": {
                     "id": "ef9fb18b-6e57-4517-81c5-46239cf2347a"
@@ -330,6 +448,40 @@
                     "id": "ad1779b8-41ca-4eb1-95c2-0fcfed796233"
                 }
             }
+        },
+        "PipelineWebhook": {
+            "Type": "AWS::CodePipeline::Webhook",
+            "Properties": {
+                "Authentication": "GITHUB_HMAC",
+                "AuthenticationConfiguration": {
+                    "SecretToken": {
+                        "Fn::Sub": "{{resolve:secretsmanager:${AWSSecretName}:SecretString:GithubSecret}}"
+                    }
+                },
+                "Filters": [
+                    {
+                        "JsonPath": "$.ref",
+                        "MatchEquals": "refs/heads/{Branch}"
+                    }
+                ],
+                "TargetPipeline": {
+                    "Ref": "AppPipeline"
+                },
+                "TargetAction": "SourceAction",
+                "Name": "AppPipelineWebhook",
+                "TargetPipelineVersion": {
+                    "Fn::GetAtt": [
+                        "AppPipeline",
+                        "Version"
+                    ]
+                },
+                "RegisterWithThirdParty": true
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "e5d7d647-e699-4c01-af9e-731a3984fbb9"
+                }
+            }
         }
     },
     "Parameters": {
@@ -337,6 +489,12 @@
             "Type": "String"
         },
         "BackendGithubRepo": {
+            "Type": "String"
+        },
+        "AWSSecretName": {
+            "Type": "String"
+        },
+        "GitHubOwner": {
             "Type": "String"
         }
     }
