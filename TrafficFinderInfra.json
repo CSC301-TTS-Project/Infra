@@ -241,7 +241,7 @@
                                         "Ref": "GitHubOwner"
                                     },
                                     "Repo": {
-                                        "Ref": "BackendGithubRepo"
+                                        "Ref": "FrontendGithubRepo"
                                     },
                                     "Branch": "main",
                                     "OAuthToken": {
