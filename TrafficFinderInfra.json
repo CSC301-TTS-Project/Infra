@@ -8,34 +8,10 @@
                     "height": 60
                 },
                 "position": {
-                    "x": 200,
-                    "y": 100
+                    "x": 240,
+                    "y": 120
                 },
-                "z": 0,
-                "embeds": []
-            },
-            "666ff5e2-745e-4e57-ac3c-63c143992831": {
-                "size": {
-                    "width": 60,
-                    "height": 60
-                },
-                "position": {
-                    "x": 410,
-                    "y": 100
-                },
-                "z": 0,
-                "embeds": []
-            },
-            "fa7e64f3-609d-400c-a0b1-3009f1b0078f": {
-                "size": {
-                    "width": 60,
-                    "height": 60
-                },
-                "position": {
-                    "x": 520,
-                    "y": 100
-                },
-                "z": 0,
+                "z": 1,
                 "embeds": []
             },
             "02dad9d1-123a-47e8-a6f7-c5e26bef5d1c": {
@@ -44,10 +20,10 @@
                     "height": 60
                 },
                 "position": {
-                    "x": 300,
-                    "y": 100
+                    "x": 930,
+                    "y": 90
                 },
-                "z": 0,
+                "z": 1,
                 "embeds": []
             },
             "c9a7dfb2-edd4-4fa2-84d4-0ed4ef7835f2": {
@@ -56,10 +32,10 @@
                     "height": 60
                 },
                 "position": {
-                    "x": 520,
-                    "y": 310
+                    "x": 510,
+                    "y": 300
                 },
-                "z": 0,
+                "z": 1,
                 "embeds": []
             },
             "fd33b81d-f4d3-4948-a645-55e8cd2002d1": {
@@ -68,10 +44,10 @@
                     "height": 60
                 },
                 "position": {
-                    "x": 520,
+                    "x": 510,
                     "y": 240
                 },
-                "z": 0,
+                "z": 1,
                 "embeds": []
             },
             "4bf6e63e-4840-4d44-8391-386063db80bd": {
@@ -80,10 +56,10 @@
                     "height": 60
                 },
                 "position": {
-                    "x": 410,
-                    "y": 240
+                    "x": 420,
+                    "y": 120
                 },
-                "z": 0,
+                "z": 1,
                 "embeds": []
             },
             "ef9fb18b-6e57-4517-81c5-46239cf2347a": {
@@ -92,10 +68,10 @@
                     "height": 60
                 },
                 "position": {
-                    "x": 410,
-                    "y": 310
+                    "x": 330,
+                    "y": 240
                 },
-                "z": 0,
+                "z": 1,
                 "embeds": []
             },
             "a357911c-f50c-420e-9944-1ee9de30089b": {
@@ -104,10 +80,10 @@
                     "height": 60
                 },
                 "position": {
-                    "x": 620,
+                    "x": 630,
                     "y": 240
                 },
-                "z": 0,
+                "z": 1,
                 "embeds": [],
                 "isassociatedwith": [
                     "fd33b81d-f4d3-4948-a645-55e8cd2002d1"
@@ -119,10 +95,10 @@
                     "height": 60
                 },
                 "position": {
-                    "x": 620,
-                    "y": 310
+                    "x": 630,
+                    "y": 300
                 },
-                "z": 0,
+                "z": 1,
                 "embeds": [],
                 "isassociatedwith": [
                     "c9a7dfb2-edd4-4fa2-84d4-0ed4ef7835f2"
@@ -134,10 +110,10 @@
                     "height": 60
                 },
                 "position": {
-                    "x": 280,
-                    "y": 240
+                    "x": 420,
+                    "y": 10
                 },
-                "z": 0,
+                "z": 1,
                 "embeds": []
             },
             "af6f9195-f356-4c25-82e4-c9cefbc4e4f8": {
@@ -146,10 +122,10 @@
                     "height": 60
                 },
                 "position": {
-                    "x": 670,
-                    "y": 100
+                    "x": 630,
+                    "y": 120
                 },
-                "z": 0,
+                "z": 1,
                 "embeds": []
             },
             "58e7ad35-38d6-427e-8394-f5fa034dc830": {
@@ -158,45 +134,75 @@
                     "height": 60
                 },
                 "position": {
-                    "x": 770,
-                    "y": 170
+                    "x": 840,
+                    "y": 150
                 },
-                "z": 0,
+                "z": 1,
+                "embeds": []
+            },
+            "f324ac83-8acf-4596-bb4a-f6153312e806": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 220,
+                    "y": 240
+                },
+                "z": 1,
                 "embeds": []
             }
         }
     },
     "Resources": {
         "PipelineRole": {
-            "Type": "AWS::IAM::ServiceLinkedRole",
-            "Properties": {},
+            "Type": "AWS::IAM::Role",
+            "Properties": {
+                "AssumeRolePolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                        {
+                            "Effect": "Allow",
+                            "Principal": {
+                                "Service": [
+                                    "codepipeline.amazonaws.com"
+                                ]
+                            },
+                            "Action": [
+                                "sts:AssumeRole"
+                            ]
+                        }
+                    ]
+                },
+                "Path": "/"
+            },
             "Metadata": {
                 "AWS::CloudFormation::Designer": {
                     "id": "0c7064b7-7053-461e-ba1b-3ef76058025e"
                 }
             }
         },
-        "CodeBuildTFPolicy": {
-            "Type": "AWS::IAM::ManagedPolicy",
-            "Properties": {},
-            "Metadata": {
-                "AWS::CloudFormation::Designer": {
-                    "id": "666ff5e2-745e-4e57-ac3c-63c143992831"
-                }
-            }
-        },
-        "CodePipelinesTFPolicy": {
-            "Type": "AWS::IAM::ManagedPolicy",
-            "Properties": {},
-            "Metadata": {
-                "AWS::CloudFormation::Designer": {
-                    "id": "fa7e64f3-609d-400c-a0b1-3009f1b0078f"
-                }
-            }
-        },
         "CodeBuildRole": {
-            "Type": "AWS::IAM::ServiceLinkedRole",
-            "Properties": {},
+            "Type": "AWS::IAM::Role",
+            "Properties": {
+                "AssumeRolePolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                        {
+                            "Effect": "Allow",
+                            "Principal": {
+                                "Service": [
+                                    "codebuild.amazonaws.com"
+                                ]
+                            },
+                            "Action": [
+                                "sts:AssumeRole"
+                            ]
+                        }
+                    ]
+                },
+                "Path": "/"
+            },
             "Metadata": {
                 "AWS::CloudFormation::Designer": {
                     "id": "02dad9d1-123a-47e8-a6f7-c5e26bef5d1c"
@@ -315,7 +321,7 @@
                         "Name": "Source",
                         "Actions": [
                             {
-                                "Name": "SourceAction",
+                                "Name": "Source",
                                 "ActionTypeId": {
                                     "Category": "Source",
                                     "Owner": "ThirdParty",
@@ -341,6 +347,71 @@
                                     "PollForSourceChanges": false
                                 },
                                 "RunOrder": 1
+                            },
+                            {
+                                "Name": "Build",
+                                "Actions": [
+                                    {
+                                        "Name": "BuildAction",
+                                        "ActionTypeId": {
+                                            "Category": "Build",
+                                            "Owner": "AWS",
+                                            "Provider": "CodeBuild"
+                                        },
+                                        "InputArtifacts": [
+                                            {
+                                                "Name": "SourceOutput"
+                                            }
+                                        ],
+                                        "OutputArtifacts": [
+                                            {
+                                                "Name": "BuildOutput"
+                                            }
+                                        ],
+                                        "Configuration": {
+                                            "ProjectName": {
+                                                "Fn::GetAtt": [
+                                                    "TrafficFinderServerBuildProj",
+                                                    "Name"
+                                                ]
+                                            }
+                                        },
+                                        "RunOrder": 2
+                                    }
+                                ]
+                            },
+                            {
+                                "Name": "Deploy",
+                                "Actions": [
+                                    {
+                                        "Name": "DeployAction",
+                                        "ActionTypeId": {
+                                            "Category": "Deploy",
+                                            "Owner": "AWS",
+                                            "Provider": "ElasticBeanstalk"
+                                        },
+                                        "InputArtifacts": [
+                                            {
+                                                "Name": "BuildOutput"
+                                            }
+                                        ],
+                                        "Configuration": {
+                                            "ApplicationName": {
+                                                "Fn::GetAtt": [
+                                                    "ElasticBeanstalkEnvironment",
+                                                    "ApplicationName"
+                                                ]
+                                            },
+                                            "EnvironmentName": {
+                                                "Fn::GetAtt": [
+                                                    "TrafficFinderServerBuildProj",
+                                                    "EnvironmentName"
+                                                ]
+                                            }
+                                        },
+                                        "RunOrder": 3
+                                    }
+                                ]
                             }
                         ]
                     }
@@ -488,7 +559,7 @@
                 }
             }
         },
-        "PipelineWebhook": {
+        "ClientPipelineWebhook": {
             "Type": "AWS::CodePipeline::Webhook",
             "Properties": {
                 "Authentication": "GITHUB_HMAC",
@@ -504,13 +575,13 @@
                     }
                 ],
                 "TargetPipeline": {
-                    "Ref": "AppPipeline"
+                    "Ref": "TrafficFinderClientPipeline"
                 },
                 "TargetAction": "SourceAction",
                 "Name": "AppPipelineWebhook",
                 "TargetPipelineVersion": {
                     "Fn::GetAtt": [
-                        "AppPipeline",
+                        "TrafficFinderClientPipeline",
                         "Version"
                     ]
                 },
@@ -529,7 +600,21 @@
                 "Artifacts": {
                     "Type": "CODEPIPELINE"
                 },
-                "Description": "Build project for TrafficFinderClient."
+                "ServiceRole": {
+                    "Fn:GetAtt": [
+                        "CodeBuildRole",
+                        "Arn"
+                    ]
+                },
+                "Environment": {
+                    "ComputeType": "BUILD_GENERAL1_SMALL",
+                    "Image": "aws/codebuild/standard:4.0",
+                    "Type": "LINUX_CONTAINER"
+                },
+                "Source": {
+                    "Type": "CODEPIPELINE"
+                },
+                "Description": "Build project for TrafficFinderServer."
             },
             "Metadata": {
                 "AWS::CloudFormation::Designer": {
@@ -544,11 +629,59 @@
                 "Artifacts": {
                     "Type": "CODEPIPELINE"
                 },
+                "ServiceRole": {
+                    "Fn::GetAtt": [
+                        "CodeBuildRole",
+                        "Arn"
+                    ]
+                },
+                "Environment": {
+                    "ComputeType": "BUILD_GENERAL1_SMALL",
+                    "Image": "aws/codebuild/standard:4.0",
+                    "Type": "LINUX_CONTAINER"
+                },
+                "Source": {
+                    "Type": "CODEPIPELINE"
+                },
                 "Description": "Build project for TrafficFinderServer."
             },
             "Metadata": {
                 "AWS::CloudFormation::Designer": {
                     "id": "58e7ad35-38d6-427e-8394-f5fa034dc830"
+                }
+            }
+        },
+        "ServerPipelineWebhook": {
+            "Type": "AWS::CodePipeline::Webhook",
+            "Properties": {
+                "Authentication": "GITHUB_HMAC",
+                "AuthenticationConfiguration": {
+                    "SecretToken": {
+                        "Fn::Sub": "{{resolve:secretsmanager:${AWSSecretName}:SecretString:GithubSecret}}"
+                    }
+                },
+                "Filters": [
+                    {
+                        "JsonPath": "$.ref",
+                        "MatchEquals": "refs/heads/{Branch}"
+                    }
+                ],
+                "TargetPipeline": {
+                    "Ref": "TrafficFinderServerPipeline"
+                },
+                "TargetAction": "SourceAction",
+                "Name": "AppPipelineWebhook",
+                "TargetPipelineVersion": {
+                    "Fn::GetAtt": [
+                        "TrafficFinderServerPipeline",
+                        "Version"
+                    ]
+                },
+                "RegisterWithThirdParty": true
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "f324ac83-8acf-4596-bb4a-f6153312e806"
                 }
             }
         }
@@ -565,6 +698,9 @@
         },
         "GitHubOwner": {
             "Type": "String"
+        },
+        "ElasticBeanstalkEnvironment": {
+            "Type": "AWS::ElasticBeanstalk::Environment"
         }
     }
 }
