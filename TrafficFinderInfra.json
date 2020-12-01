@@ -23,8 +23,8 @@
                     "height": 60
                 },
                 "position": {
-                    "x": 860,
-                    "y": 180
+                    "x": 880,
+                    "y": 140
                 },
                 "z": 1,
                 "embeds": [],
@@ -42,7 +42,10 @@
                     "y": 360
                 },
                 "z": 1,
-                "embeds": []
+                "embeds": [],
+                "dependson": [
+                    "ad1779b8-41ca-4eb1-95c2-0fcfed796233"
+                ]
             },
             "fd33b81d-f4d3-4948-a645-55e8cd2002d1": {
                 "size": {
@@ -50,11 +53,14 @@
                     "height": 60
                 },
                 "position": {
-                    "x": 510,
+                    "x": 520,
                     "y": 240
                 },
                 "z": 1,
-                "embeds": []
+                "embeds": [],
+                "dependson": [
+                    "a357911c-f50c-420e-9944-1ee9de30089b"
+                ]
             },
             "4bf6e63e-4840-4d44-8391-386063db80bd": {
                 "size": {
@@ -66,7 +72,10 @@
                     "y": 120
                 },
                 "z": 1,
-                "embeds": []
+                "embeds": [],
+                "dependson": [
+                    "440bdaba-cc22-4690-a491-fefca59896c3"
+                ]
             },
             "ef9fb18b-6e57-4517-81c5-46239cf2347a": {
                 "size": {
@@ -75,10 +84,13 @@
                 },
                 "position": {
                     "x": 330,
-                    "y": 240
+                    "y": 220
                 },
                 "z": 1,
-                "embeds": []
+                "embeds": [],
+                "dependson": [
+                    "be8f890f-6980-47dc-a834-ffa7d3cbed9f"
+                ]
             },
             "a357911c-f50c-420e-9944-1ee9de30089b": {
                 "size": {
@@ -86,8 +98,8 @@
                     "height": 60
                 },
                 "position": {
-                    "x": 700,
-                    "y": 260
+                    "x": 630,
+                    "y": 250
                 },
                 "z": 1,
                 "embeds": []
@@ -98,8 +110,8 @@
                     "height": 60
                 },
                 "position": {
-                    "x": 640,
-                    "y": 370
+                    "x": 580,
+                    "y": 360
                 },
                 "z": 1,
                 "embeds": []
@@ -110,8 +122,8 @@
                     "height": 60
                 },
                 "position": {
-                    "x": 540,
-                    "y": 20
+                    "x": 340,
+                    "y": 40
                 },
                 "z": 1,
                 "embeds": []
@@ -146,8 +158,8 @@
                     "height": 60
                 },
                 "position": {
-                    "x": 220,
-                    "y": 240
+                    "x": 170,
+                    "y": 320
                 },
                 "z": 1,
                 "embeds": []
@@ -176,106 +188,71 @@
                 "z": 0,
                 "embeds": []
             },
-            "b1d28f8d-9ce6-4330-b559-40af3c03e9a3": {
-                "source": {
-                    "id": "02dad9d1-123a-47e8-a6f7-c5e26bef5d1c"
+            "440bdaba-cc22-4690-a491-fefca59896c3": {
+                "size": {
+                    "width": 60,
+                    "height": 60
                 },
-                "target": {
-                    "id": "f4500da9-41af-42bb-98d7-9e1aecfb7fe6"
+                "position": {
+                    "x": 560,
+                    "y": -70
                 },
-                "z": 2
+                "z": 0,
+                "embeds": []
             },
-            "2d87afe2-fb76-483f-a784-8047486098db": {
-                "source": {
-                    "id": "ad1779b8-41ca-4eb1-95c2-0fcfed796233"
+            "3ac29752-9d0c-48bc-a2ec-3e4bce60d003": {
+                "size": {
+                    "width": 60,
+                    "height": 60
                 },
-                "target": {
-                    "id": "c9a7dfb2-edd4-4fa2-84d4-0ed4ef7835f2"
+                "position": {
+                    "x": 660,
+                    "y": -70
                 },
-                "z": 3
+                "z": 0,
+                "embeds": [],
+                "isassociatedwith": [
+                    "440bdaba-cc22-4690-a491-fefca59896c3"
+                ]
             },
-            "ce082d56-3c19-4b5f-95a4-16b735d76813": {
-                "source": {
-                    "id": "a357911c-f50c-420e-9944-1ee9de30089b"
+            "be8f890f-6980-47dc-a834-ffa7d3cbed9f": {
+                "size": {
+                    "width": 60,
+                    "height": 60
                 },
-                "target": {
+                "position": {
+                    "x": 100,
+                    "y": 210
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "a5434947-9d0a-4467-94df-ec9c7e5f7a6c": {
+                "source": {
                     "id": "fd33b81d-f4d3-4948-a645-55e8cd2002d1"
                 },
-                "z": 4
-            },
-            "0c7f0140-d84b-46f3-8cc5-91cc46509c52": {
-                "source": {
-                    "id": "ef9fb18b-6e57-4517-81c5-46239cf2347a"
-                },
                 "target": {
+                    "id": "a357911c-f50c-420e-9944-1ee9de30089b"
+                },
+                "z": 11
+            },
+            "70047539-1f5b-470f-961e-158df06d1785": {
+                "source": {
                     "id": "c9a7dfb2-edd4-4fa2-84d4-0ed4ef7835f2"
                 },
-                "z": 5
+                "target": {
+                    "id": "ad1779b8-41ca-4eb1-95c2-0fcfed796233"
+                },
+                "z": 12
             },
-            "0417532c-1330-4e27-8c6f-11fcbd876de1": {
+            "0aa0409f-f956-4a7a-b2f6-0dca08baa3e3": {
                 "source": {
                     "id": "ef9fb18b-6e57-4517-81c5-46239cf2347a"
                 },
                 "target": {
-                    "id": "58e7ad35-38d6-427e-8394-f5fa034dc830"
+                    "id": "be8f890f-6980-47dc-a834-ffa7d3cbed9f"
                 },
-                "z": 6
-            },
-            "69109484-cb7c-4a3d-b700-818125ad4b0f": {
-                "source": {
-                    "id": "58e7ad35-38d6-427e-8394-f5fa034dc830",
-                    "selector": "g:nth-child(1) g:nth-child(4) g:nth-child(1) circle:nth-child(1)     ",
-                    "port": "AWS::DependencyLink-*"
-                },
-                "target": {
-                    "id": "02dad9d1-123a-47e8-a6f7-c5e26bef5d1c"
-                },
-                "z": 8
-            },
-            "fdd1050d-aa76-4184-baee-8cff7a76776d": {
-                "source": {
-                    "id": "0c7064b7-7053-461e-ba1b-3ef76058025e"
-                },
-                "target": {
-                    "id": "6b196017-22ba-45d3-97fe-67d422f4fe86"
-                },
-                "z": 8
-            },
-            "71047d85-5376-419a-a985-49c0348aadee": {
-                "source": {
-                    "id": "6b196017-22ba-45d3-97fe-67d422f4fe86"
-                },
-                "target": {
-                    "id": "af6f9195-f356-4c25-82e4-c9cefbc4e4f8"
-                },
-                "z": 9
-            },
-            "180798d7-e113-481f-9c17-d97945819cf5": {
-                "source": {
-                    "id": "f4500da9-41af-42bb-98d7-9e1aecfb7fe6"
-                },
-                "target": {
-                    "id": "58e7ad35-38d6-427e-8394-f5fa034dc830"
-                },
-                "z": 10
-            },
-            "2f2b4a6d-6938-42a1-a663-f4da3fd98675": {
-                "source": {
-                    "id": "02dad9d1-123a-47e8-a6f7-c5e26bef5d1c"
-                },
-                "target": {
-                    "id": "f4500da9-41af-42bb-98d7-9e1aecfb7fe6"
-                },
-                "z": 2
-            },
-            "eef17efd-6f11-446b-95af-22b4c0ffaeb7": {
-                "source": {
-                    "id": "0c7064b7-7053-461e-ba1b-3ef76058025e"
-                },
-                "target": {
-                    "id": "6b196017-22ba-45d3-97fe-67d422f4fe86"
-                },
-                "z": 2
+                "z": 13
             }
         }
     },
@@ -347,21 +324,31 @@
         },
         "TrafficFinderServerArtifacts": {
             "Type": "AWS::S3::Bucket",
-            "Properties": {},
+            "Properties": {
+                "BucketName": "tfs-artifacts"
+            },
             "Metadata": {
                 "AWS::CloudFormation::Designer": {
                     "id": "c9a7dfb2-edd4-4fa2-84d4-0ed4ef7835f2"
                 }
-            }
+            },
+            "DependsOn": [
+                "ServerBucketPolicy"
+            ]
         },
         "TrafficFinderClientArtifacts": {
             "Type": "AWS::S3::Bucket",
-            "Properties": {},
+            "Properties": {
+                "BucketName": "tfc-artifacts"
+            },
             "Metadata": {
                 "AWS::CloudFormation::Designer": {
                     "id": "fd33b81d-f4d3-4948-a645-55e8cd2002d1"
                 }
-            }
+            },
+            "DependsOn": [
+                "ClientBucketPolicy"
+            ]
         },
         "TrafficFinderClientPipeline": {
             "Type": "AWS::CodePipeline::Pipeline",
@@ -461,12 +448,7 @@
                                     }
                                 ],
                                 "Configuration": {
-                                    "BucketName": {
-                                        "Fn::GetAtt": [
-                                            "StaticHostS3Bucket",
-                                            "BucketName"
-                                        ]
-                                    },
+                                    "BucketName": "traffic-finder-static",
                                     "Extract": true
                                 },
                                 "RunOrder": 3
@@ -479,7 +461,10 @@
                 "AWS::CloudFormation::Designer": {
                     "id": "4bf6e63e-4840-4d44-8391-386063db80bd"
                 }
-            }
+            },
+            "DependsOn": [
+                "StaticHostingS3Bucket"
+            ]
         },
         "TrafficFinderServerPipeline": {
             "Type": "AWS::CodePipeline::Pipeline",
@@ -578,16 +563,10 @@
                                         ],
                                         "Configuration": {
                                             "ApplicationName": {
-                                                "Fn::GetAtt": [
-                                                    "ElasticBeanstalkEnvironment",
-                                                    "ApplicationName"
-                                                ]
+                                                "Ref": "ElasticBeanstalkApplicationName"
                                             },
                                             "EnvironmentName": {
-                                                "Fn::GetAtt": [
-                                                    "TrafficFinderServerBuildProj",
-                                                    "EnvironmentName"
-                                                ]
+                                                "Ref": "ElasticBeanstalkEnvironmentName"
                                             }
                                         },
                                         "RunOrder": 3
@@ -602,7 +581,10 @@
                 "AWS::CloudFormation::Designer": {
                     "id": "ef9fb18b-6e57-4517-81c5-46239cf2347a"
                 }
-            }
+            },
+            "DependsOn": [
+                "ElasticBeanstalkEnvironment"
+            ]
         },
         "ClientBucketPolicy": {
             "Type": "AWS::S3::BucketPolicy",
@@ -615,20 +597,7 @@
                             "Effect": "Deny",
                             "Principal": "*",
                             "Action": "s3:PutObject",
-                            "Resource": {
-                                "Fn::Join": [
-                                    "",
-                                    [
-                                        {
-                                            "Fn::GetAtt": [
-                                                "TrafficFinderClientBuildArtifacts",
-                                                "Arn"
-                                            ]
-                                        },
-                                        "/*"
-                                    ]
-                                ]
-                            },
+                            "Resource": "arn:aws:s3:::tfc-artifacts/*",
                             "Condition": {
                                 "StringNotEquals": {
                                     "s3:x-amz-server-side-encryption": "aws:kms"
@@ -640,20 +609,7 @@
                             "Effect": "Deny",
                             "Principal": "*",
                             "Action": "s3:*",
-                            "Resource": {
-                                "Fn::Join": [
-                                    "",
-                                    [
-                                        {
-                                            "Fn::GetAtt": [
-                                                "TrafficFinderClientBuildArtifacts",
-                                                "Arn"
-                                            ]
-                                        },
-                                        "/*"
-                                    ]
-                                ]
-                            },
+                            "Resource": "arn:aws:s3:::tfc-artifacts/*",
                             "Condition": {
                                 "Bool": {
                                     "aws:SecureTransport": false
@@ -680,20 +636,7 @@
                             "Effect": "Deny",
                             "Principal": "*",
                             "Action": "s3:PutObject",
-                            "Resource": {
-                                "Fn::Join": [
-                                    "",
-                                    [
-                                        {
-                                            "Fn::GetAtt": [
-                                                "TrafficFinderServerBuildArtifacts",
-                                                "Arn"
-                                            ]
-                                        },
-                                        "/*"
-                                    ]
-                                ]
-                            },
+                            "Resource": "arn:aws:s3:::tfs-artifacts/*",
                             "Condition": {
                                 "StringNotEquals": {
                                     "s3:x-amz-server-side-encryption": "aws:kms"
@@ -705,20 +648,7 @@
                             "Effect": "Deny",
                             "Principal": "*",
                             "Action": "s3:*",
-                            "Resource": {
-                                "Fn::Join": [
-                                    "",
-                                    [
-                                        {
-                                            "Fn::GetAtt": [
-                                                "TrafficFinderServerBuildArtifacts",
-                                                "Arn"
-                                            ]
-                                        },
-                                        "/*"
-                                    ]
-                                ]
-                            },
+                            "Resource": "arn:aws:s3:::tfs-artifacts/*",
                             "Condition": {
                                 "Bool": {
                                     "aws:SecureTransport": false
@@ -770,13 +700,13 @@
         },
         "TrafficFinderClientBuildProj": {
             "Type": "AWS::CodeBuild::Project",
-            "Name": "TrafficFinderClientBuildProj",
             "Properties": {
+                "Name": "TrafficFinderClientBuildProj",
                 "Artifacts": {
                     "Type": "CODEPIPELINE"
                 },
                 "ServiceRole": {
-                    "Fn:GetAtt": [
+                    "Fn::GetAtt": [
                         "CodeBuildRole",
                         "Arn"
                     ]
@@ -804,11 +734,11 @@
         },
         "TrafficFinderServerBuildProj": {
             "Type": "AWS::CodeBuild::Project",
-            "Name": "TrafficFinderServerBuildProj",
             "Properties": {
                 "Artifacts": {
                     "Type": "CODEPIPELINE"
                 },
+                "Name": "TrafficFinderServerBuildProj",
                 "ServiceRole": {
                     "Fn::GetAtt": [
                         "CodeBuildRole",
@@ -834,10 +764,7 @@
                 "AWS::CloudFormation::Designer": {
                     "id": "58e7ad35-38d6-427e-8394-f5fa034dc830"
                 }
-            },
-            "DependsOn": [
-                "CodeBuildRole"
-            ]
+            }
         },
         "ServerPipelineWebhook": {
             "Type": "AWS::CodePipeline::Webhook",
@@ -1069,16 +996,16 @@
                             "Effect": "Allow",
                             "Resource": [
                                 {
-                                    "Fn::Sub": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/codebuild/${TrafficFinderServerBuildProj}"
+                                    "Fn::Sub": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/codebuild/TrafficFinderServerBuildProj"
                                 },
                                 {
-                                    "Fn::Sub": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/codebuild/${TrafficFinderServerBuildProj}:*"
+                                    "Fn::Sub": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/codebuild/TrafficFinderServerBuildProj:*"
                                 },
                                 {
-                                    "Fn::Sub": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/codebuild/${TrafficFinderClientBuildProj}"
+                                    "Fn::Sub": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/codebuild/TrafficFinderClientBuildProj"
                                 },
                                 {
-                                    "Fn::Sub": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/codebuild/${TrafficFinderClientBuildProj}:*"
+                                    "Fn::Sub": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/codebuild/TrafficFinderClientBuildProj:*"
                                 }
                             ],
                             "Action": [
@@ -1113,10 +1040,10 @@
                             ],
                             "Resource": [
                                 {
-                                    "Fn::Sub": "arn:aws:codebuild:${AWS::Region}:${AWS::AccountId}:report-group/{TrafficFinderServerBuildProj}-*"
+                                    "Fn::Sub": "arn:aws:codebuild:${AWS::Region}:${AWS::AccountId}:report-group/TrafficFinderServerBuildProj-*"
                                 },
                                 {
-                                    "Fn::Sub": "arn:aws:codebuild:${AWS::Region}:${AWS::AccountId}:report-group/{TrafficFinderClientBuildProj}-*"
+                                    "Fn::Sub": "arn:aws:codebuild:${AWS::Region}:${AWS::AccountId}:report-group/TrafficFinderClientBuildProj-*"
                                 }
                             ]
                         }
@@ -1126,6 +1053,76 @@
             "Metadata": {
                 "AWS::CloudFormation::Designer": {
                     "id": "f4500da9-41af-42bb-98d7-9e1aecfb7fe6"
+                }
+            }
+        },
+        "StaticHostingS3Bucket": {
+            "Type": "AWS::S3::Bucket",
+            "Properties": {
+                "Description": "A bucket configured to host static content.",
+                "AccessControl": "PublicRead",
+                "WebsiteConfiguration": {
+                    "IndexDocument": "index.html",
+                    "ErrorDocument": "error.html"
+                },
+                "BucketName": "traffic-finder-static"
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "440bdaba-cc22-4690-a491-fefca59896c3"
+                }
+            }
+        },
+        "StaticHostingBucketPolicy": {
+            "Type": "AWS::S3::BucketPolicy",
+            "Properties": {
+                "PolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                        {
+                            "Sid": "PublicReadForGetBucketObjects",
+                            "Effect": "Allow",
+                            "Principal": "*",
+                            "Action": "s3:GetObject",
+                            "Resource": {
+                                "Fn::Join": [
+                                    "",
+                                    [
+                                        "arn:aws:s3:::",
+                                        {
+                                            "Ref": "StaticHostingS3Bucket"
+                                        },
+                                        "/*"
+                                    ]
+                                ]
+                            }
+                        }
+                    ]
+                },
+                "Bucket": {
+                    "Ref": "StaticHostingS3Bucket"
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "3ac29752-9d0c-48bc-a2ec-3e4bce60d003"
+                }
+            }
+        },
+        "ElasticBeanstalkEnvironment": {
+            "Type": "AWS::ElasticBeanstalk::Environment",
+            "Properties": {
+                "ApplicationName": {
+                    "Ref": "ElasticBeanstalkApplicationName"
+                },
+                "EnvironmentName": {
+                    "Ref": "ElasticBeanstalkEnvironmentName"
+                },
+                "SolutionStackName": "64bit Amazon Linux 2 v3.1.3 running Python 3.7"
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "be8f890f-6980-47dc-a834-ffa7d3cbed9f"
                 }
             }
         }
@@ -1147,13 +1144,11 @@
             "Type": "String",
             "Description": "The owner of the github repositories."
         },
-        "ElasticBeanstalkEnvironment": {
-            "Type": "AWS::ElasticBeanstalk::Environment",
-            "Description": "An ElasticBeanstalk environment configured within a VPC. You may need to import additional configurations to get this to work."
+        "ElasticBeanstalkApplicationName": {
+            "Type": "String"
         },
-        "StaticHostingS3Bucket": {
-            "Type": "AWS::S3::Bucket",
-            "Description": "A bucket configured to host static content."
+        "ElasticBeanstalkEnvironmentName": {
+            "Type": "String"
         }
     }
 }
