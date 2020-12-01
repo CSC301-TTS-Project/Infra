@@ -20,8 +20,8 @@
                     "height": 60
                 },
                 "position": {
-                    "x": 930,
-                    "y": 90
+                    "x": 860,
+                    "y": 180
                 },
                 "z": 1,
                 "embeds": []
@@ -134,8 +134,8 @@
                     "height": 60
                 },
                 "position": {
-                    "x": 840,
-                    "y": 150
+                    "x": 710,
+                    "y": 180
                 },
                 "z": 1,
                 "embeds": []
@@ -209,7 +209,7 @@
                 }
             }
         },
-        "TrafficFinderServerBuildArtifacts": {
+        "TrafficFinderServerArtifacts": {
             "Type": "AWS::S3::Bucket",
             "Properties": {},
             "Metadata": {
@@ -218,7 +218,7 @@
                 }
             }
         },
-        "TrafficFinderClientBuildArtifacts": {
+        "TrafficFinderClientArtifacts": {
             "Type": "AWS::S3::Bucket",
             "Properties": {},
             "Metadata": {
@@ -236,6 +236,12 @@
                         "PipelineRole",
                         "Arn"
                     ]
+                },
+                "ArtifactStore": {
+                    "Type": "S3",
+                    "Location": {
+                        "Ref": "TrafficFinderClientArtifacts"
+                    }
                 },
                 "Stages": [
                     {
@@ -281,6 +287,11 @@
                                     "Owner": "AWS",
                                     "Provider": "CodeBuild"
                                 },
+                                "InputArtifacts": [
+                                    {
+                                        "Name": "SourceOutput"
+                                    }
+                                ],
                                 "OutputArtifacts": [
                                     {
                                         "Name": "BuildOutput"
@@ -295,6 +306,34 @@
                                     }
                                 },
                                 "RunOrder": 2
+                            }
+                        ]
+                    },
+                    {
+                        "Name": "Deploy",
+                        "Actions": [
+                            {
+                                "Name": "DeployAction",
+                                "ActionTypeId": {
+                                    "Category": "Deploy",
+                                    "Owner": "AWS",
+                                    "Provider": "S3"
+                                },
+                                "InputArtifacts": [
+                                    {
+                                        "Name": "BuildOutput"
+                                    }
+                                ],
+                                "Configuration": {
+                                    "BucketName": {
+                                        "Fn::GetAtt": [
+                                            "StaticHostS3Bucket",
+                                            "BucketName"
+                                        ]
+                                    },
+                                    "Extract": true
+                                },
+                                "RunOrder": 3
                             }
                         ]
                     }
@@ -315,6 +354,12 @@
                         "PipelineRole",
                         "Arn"
                     ]
+                },
+                "ArtifactStore": {
+                    "Type": "S3",
+                    "Location": {
+                        "Ref": "TrafficFinderServerArtifacts"
+                    }
                 },
                 "Stages": [
                     {
@@ -427,7 +472,7 @@
             "Type": "AWS::S3::BucketPolicy",
             "Properties": {
                 "Bucket": {
-                    "Ref": "TrafficFinderClientBuildArtifacts"
+                    "Ref": "TrafficFinderClientArtifacts"
                 },
                 "PolicyDocument": {
                     "Version": "2012-10-17",
@@ -495,7 +540,7 @@
             "Type": "AWS::S3::BucketPolicy",
             "Properties": {
                 "Bucket": {
-                    "Ref": "TrafficFinderServerBuildArtifacts"
+                    "Ref": "TrafficFinderServerArtifacts"
                 },
                 "PolicyDocument": {
                     "Version": "2012-10-17",
@@ -649,7 +694,10 @@
                 "AWS::CloudFormation::Designer": {
                     "id": "58e7ad35-38d6-427e-8394-f5fa034dc830"
                 }
-            }
+            },
+            "DependsOn": [
+                "CodeBuildRole"
+            ]
         },
         "ServerPipelineWebhook": {
             "Type": "AWS::CodePipeline::Webhook",
@@ -688,19 +736,28 @@
     },
     "Parameters": {
         "FrontendGithubRepo": {
-            "Type": "String"
+            "Type": "String",
+            "Description": "The frontend github repository. See https://docs.aws.amazon.com/codepipeline/latest/userguide/appendix-github-oauth.html for more details on how to configure this."
         },
         "BackendGithubRepo": {
-            "Type": "String"
+            "Type": "String",
+            "Description": "The backend github repository. See https://docs.aws.amazon.com/codepipeline/latest/userguide/appendix-github-oauth.html for more details on how to configure this."
         },
         "AWSSecretName": {
-            "Type": "String"
+            "Type": "String",
+            "Description": "The name of the AWS Secrets. In the student configured application, we used one called TrafficFinder/API. You will need to create your own."
         },
         "GitHubOwner": {
-            "Type": "String"
+            "Type": "String",
+            "Description": "The owner of the github repositories."
         },
         "ElasticBeanstalkEnvironment": {
-            "Type": "AWS::ElasticBeanstalk::Environment"
+            "Type": "AWS::ElasticBeanstalk::Environment",
+            "Description": "An ElasticBeanstalk environment configured within a VPC. You may need to import additional configurations to get this to work."
+        },
+        "StaticHostingS3Bucket": {
+            "Type": "AWS::S3::Bucket",
+            "Description": "A bucket configured to host static content."
         }
     }
 }
