@@ -15,5 +15,7 @@ It expects the aws account to already contain an AWS Secrets Manager Secret inst
 * DDB_TEST_SEGMENT_TABLE_NAME
 * GITHUB_SECRET
 
-The intended usage is for someone to create their own EB/RDS instances within their own VPC, import them into this stack and do any further network configurations, change the final deployment stage in the backend pipeline to point to the EB instance, then create the stack.
+Further VPC network configuration may need to be done, and role permissions may need to be adjusted to allow the Elastic Beanstalk instance access to the RDS instance depending on the existing stack.
+This stack uses Github V1 sources for pipelines, but our current dev pipeline uses v2. This is because v2 is not supported in cloudformation yet/there is no documentation for it.
+See: https://docs.aws.amazon.com/codepipeline/latest/userguide/appendix-github-oauth.html
 
